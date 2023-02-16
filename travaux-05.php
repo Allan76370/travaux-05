@@ -5,12 +5,12 @@ $url = 'https://randomuser.me/api/?results=20';
 $randomJson = file_get_contents($url);
 $randomJson = json_decode($randomJson, true);
 
-echo '<pre>';
-echo print_r($randomJson, true);
-echo '</pre>';
+// echo '<pre>';
+// echo print_r($randomJson, true);
+// echo '</pre>';
 
 
-echo '<div>';
+echo '<div style="display:flex;flex-wrap:wrap;">';
 foreach ($randomJson['results'] as $value) {
     $firstName = $value['name']['first'];
     $lastName = $value['name']['last'];
@@ -23,5 +23,6 @@ foreach ($randomJson['results'] as $value) {
     echo '<p>' . $firstName . '</p>';
     echo '<p>' . $lastName . '</p>';
     echo '<p>' . $value['email'] . '</p>';
+    echo '</div>';
 }
 echo '</div>';
